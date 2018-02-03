@@ -90,7 +90,7 @@ public interface ResultValidator {
      * should be exactly of that type, subclasses are not accepted.
      *
      * @param expectedException The type of exception expected from the command handler execution
-     * @return the current ResultValidator, for fluent interfacing
+     * @return the current ExceptionValidator, for fluent interfacing
      */
     ExceptionValidator expectException(Class<? extends Throwable> expectedException);
 
@@ -98,7 +98,7 @@ public interface ResultValidator {
      * Expect an exception to occur during command handler execution that matches with the given {@code matcher}.
      *
      * @param matcher The matcher to validate the actual exception
-     * @return the current ResultValidator, for fluent interfacing
+     * @return the current ExceptionValidator, for fluent interfacing
      */
     ExceptionValidator expectException(Matcher<?> matcher);
 
