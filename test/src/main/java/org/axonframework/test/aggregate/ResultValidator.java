@@ -92,7 +92,7 @@ public interface ResultValidator {
      * @param expectedException The type of exception expected from the command handler execution
      * @return the current ResultValidator, for fluent interfacing
      */
-    ResultValidator expectException(Class<? extends Throwable> expectedException);
+    ExceptionValidator expectException(Class<? extends Throwable> expectedException);
 
     /**
      * Expect an exception to occur during command handler execution that matches with the given {@code matcher}.
@@ -100,7 +100,7 @@ public interface ResultValidator {
      * @param matcher The matcher to validate the actual exception
      * @return the current ResultValidator, for fluent interfacing
      */
-    ResultValidator expectException(Matcher<?> matcher);
+    ExceptionValidator expectException(Matcher<?> matcher);
 
     /**
      * Expect a successful execution of the given command handler, regardless of the actual return value.

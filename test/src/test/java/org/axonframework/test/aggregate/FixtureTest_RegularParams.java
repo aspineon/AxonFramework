@@ -375,8 +375,8 @@ public class FixtureTest_RegularParams {
                     .registerAnnotatedCommandHandler(commandHandler)
                     .given(givenEvents)
                     .when(new StrangeCommand("aggregateId"))
-                    .expectException(StrangeCommandReceivedException.class)
-                    .expectEvents(new MyEvent("aggregateId", 4)); // should be 4
+                    .expectEvents(new MyEvent("aggregateId", 4)) // should be 4
+                    .expectException(StrangeCommandReceivedException.class);
             fail("Expected an AxonAssertionError");
         } catch (AxonAssertionError e) {
             assertTrue(e.getMessage().contains("The published events do not match the expected events"));

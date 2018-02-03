@@ -117,12 +117,13 @@ public class ResultValidatorImpl implements ResultValidator, CommandCallback<Obj
 
     @SuppressWarnings({"unchecked"})
     @Override
-    public ResultValidator expectException(Class<? extends Throwable> expectedException) {
+    public ExceptionValidator expectException(Class<? extends Throwable> expectedException) {
         return expectException(instanceOf(expectedException));
     }
 
+
     @Override
-    public ResultValidator expectException(Matcher<?> matcher) {
+    public ExceptionValidator expectException(Matcher<?> matcher) {
         StringDescription description = new StringDescription();
         matcher.describeTo(description);
         if (actualException == null) {
@@ -131,7 +132,7 @@ public class ResultValidatorImpl implements ResultValidator, CommandCallback<Obj
         if (!matcher.matches(actualException)) {
             reporter.reportWrongException(actualException, description);
         }
-        return this;
+        return new ExceptionValidator(actualException);
     }
 
     @Override
